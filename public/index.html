@@ -7,10 +7,92 @@
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, scale=1.0, user-scalable=no"
     />
     <link rel="stylesheet" href="./css/styles.css" />
+    <script src="https://kit.fontawesome.com/5d4273fc75.js" crossorigin="anonymous"></script>
     <title>Treninfo - Home</title>
   </head>
   <body>
-    <h1>Test del font</h1>
-    <p>Porco dio, ma porco non porchetto, proprio porco maledetto</p>
+    <header class="nav">
+      <div class="bandiera"></div>
+      <div class="nav-wrap">
+        <div class="main-title">
+          <img src="img/treninfo.png" alt="Treninfo logo" class="logo"/>
+          <p>Treninfo</p>
+        </div>
+        <div class="link-titles">
+          <a href="https://github.com/cristianceni5" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-github"></i> GitHub
+          </a>
+        </div>
+      </div>
+    </header>
+    <main>
+      <section class="home" id="home"></section>
+
+      <section class="present" id="present">
+        <div class="present-wrap">
+          <h1>Treninfo</h1>
+          <h3>Per i viaggiatori, da un viaggiatore</h3>
+          <p>
+            Treninfo aiuta i viaggiatori ad avere maggior chiarezza sulle informazioni dei propri spostamenti ferroviari.
+            L'applicazione, che comunica direttamente con Treninfo Server, sfrutta la massima rapidità e sicurezza possibili per comunicare all'utente
+            lo stato del suo treno, stazione o infomobilità
+          </p>
+          <p>
+            <b>Disclaimer:</b> 
+            Per la scrittura del backend e di queste pagine non sono stati usati agenti LLM, tutto questo codice è stato scritto a mano.
+            Non è una critica o una presunzione, io come sviluppatore utilizzo agenti LLM per la stesura più rapida del codice, questo progetto volontariamente non ne ha previsto
+            l'uso.
+          </p>
+          <h2>CRISTIAN CENI</h2>
+        </div>
+      </section>
+
+      <hr>
+
+      <section class="present" id="present">
+        <div class="present-wrap">
+          <h1>Come nasce?</h1>
+          <p>
+            L'idea iniziale mi è venuta quando ho notato che la mia cara e vecchia app <b>Orario Treni</b> di <b>Paolo Conte</b> stava venendo
+            dismessa. Così iniziai a capire come funzionassero i servizi di monitoring della rete RFI offerti da Trenitalia.
+          </p>
+          <h3>La svolta</h3>
+          <p>
+            Il progetto ebbe diverse pause e riprese, però con l'aumento della mia esperienza e grazie all'aiuto di numerose repo online sui servizi di RFI,
+            fui in grado di fare la prima versione di Treninfo Server e collegarla all'applicazione scritta usando React Native su Expo Framework. 
+          </p>
+          <h3>I problemi</h3>
+          <p>
+            Per colpa di: università, lavoro e progetti terzi lo sviluppo si interruppe bruscamente a marzo 2026. Ritornando sul progetto diversi mesi dopo,
+            notai come tutto era estremamente fragile e poco manutenibile, tipico delle codebase scritte prevalentemente a occhio e usando perlopiù agenti LLM.
+          </p>
+          <h3>La fine</h3>
+          <p>
+            Quindi che faccio butto tutto via?
+            Assolutamente, ad oggi (settembre 2026) ho ripreso la riscrittura totale del backend basandomi sull'architettura usata, cioè usando <b>Node.js</b> e <b>Express</b>
+            con una regola: scrivere io il codice, impiegarci più tempo, ma avere piena consapevolezza di cosa sto mettendo in produzione di cosa gli utenti andranno ad utlizzare.
+          </p>
+          <h3>Aggiornamenti</h3>
+          <p>
+            Pubblicherò via aggiornamenti, non prometto grandi progressi nei primi giorni, è possibile visitare la repo pubblica <a href="https://github.com/cristianceni5/treninfo-backend" target="_blank" rel="noopener noreferrer">qui.</a>
+          </p>
+          <h2>Stay tuned.</h2>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="copyright">
+          © 2026 Cristian Ceni. All the rights are reserved.
+        </div>
+        <div class="developer">
+          Developed by:
+          <a href="https://cenidev.com" target="_blank" rel="noopener noreferrer" class="developer-link">
+            CRISTIAN CENI
+          </a>
+        </div>
+      </div>
+    </footer>
+    <script src="./js/script-appoggio.js"></script>
   </body>
 </html>

@@ -89,8 +89,46 @@ router.get("/stazione/partenze", async (req, res) => {
         .json({ error: "Errore nella richiesta all'endpoint RFI." });
     }
 
+    // Risposta con le partenze solo con i dati che mi interessano
     const partenze = await risposta.json();
     return res.json(partenze);
+  } catch (error) {
+    console.error("Errore durante la richiesta a RFI:", error);
+    return res.status(500).json({ error: "Errore interno del server." });
+  }
+});
+
+// Endpoint per ottenere gli arrivi della stazione
+router.get("/stazione/arrivi", async (req, res) => {
+  const codiceStazione = req.query.codiceStazione;
+  const endpointRFI = process.env.ENDPOINT_RFI_VT;
+
+  if (!codiceStazione) {
+    return res
+      .status(400)
+      .json({ error: "Il parametro codiceStazione è obbligatorio." });
+  }
+
+  if (!endpointRFI) {
+    return res.status(500).json({ error: "Endpoint RFI non configurato." });
+  }
+
+  const dataAttuale = encodeURIComponent(new Date().toString());
+
+  try {
+    const risposta = await fetch(
+      `${endpointRFI}/arrivi/${codiceStazione}/${dataAttuale}`,
+    );
+
+    if (!risposta.ok) {
+      return res
+        .status(risposta.status)
+        .json({ error: "Errore nella richiesta all'endpoint RFI." });
+    }
+
+    // Risposta con gli arrivi solo con i dati che mi interessano
+    const arrivi = await risposta.json();
+    return res.json(arrivi);
   } catch (error) {
     console.error("Errore durante la richiesta a RFI:", error);
     return res.status(500).json({ error: "Errore interno del server." });

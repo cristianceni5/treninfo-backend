@@ -99,6 +99,150 @@ Durante la ricerca stazione vengono ricercati anche partenze e arrivi, giustamen
 
 - Qui RFI chiama `http://www.viaggiatreno.it/infomobilita/resteasy/viaggiatreno/partenze/S06421/` e ci aggiunge la data in formato `GiornoSettimana Mese GiornoMese Anno HH:mm:ss FusoOrario` un timestamp analogo a quello restituito da `Date.prototype.toString()`
 
+Risposta:
+```json
+{
+        "arrivato": true,
+        "dataPartenzaTrenoAsDate": "2026-09-19",
+        "dataPartenzaTreno": 1789768800000,
+        "partenzaTreno": 1789838700000,
+        "millisDataPartenza": "1789768800000",
+        "numeroTreno": 9328,
+        "categoria": "",
+        "categoriaDescrizione": " FR",
+        "origine": null,
+        "codOrigine": "S08409",
+        "destinazione": "MANTOVA",
+        "codDestinazione": null,
+        "origineEstera": null,
+        "destinazioneEstera": null,
+        "oraPartenzaEstera": null,
+        "oraArrivoEstera": null,
+        "tratta": 0,
+        "regione": 0,
+        "origineZero": null,
+        "destinazioneZero": null,
+        "orarioPartenzaZero": null,
+        "orarioArrivoZero": null,
+        "circolante": true,
+        "codiceCliente": 1,
+        "binarioEffettivoArrivoCodice": null,
+        "binarioEffettivoArrivoDescrizione": null,
+        "binarioEffettivoArrivoTipo": null,
+        "binarioProgrammatoArrivoCodice": null,
+        "binarioProgrammatoArrivoDescrizione": null,
+        "binarioEffettivoPartenzaCodice": "0",
+        "binarioEffettivoPartenzaDescrizione": "11",
+        "binarioEffettivoPartenzaTipo": "0",
+        "binarioProgrammatoPartenzaCodice": null,
+        "binarioProgrammatoPartenzaDescrizione": "9",
+        "subTitle": null,
+        "esisteCorsaZero": null,
+        "orientamento": "A",
+        "inStazione": true,
+        "haCambiNumero": false,
+        "nonPartito": false,
+        "provvedimento": 0,
+        "riprogrammazione": "N",
+        "orarioPartenza": 1789845000000,
+        "orarioArrivo": null,
+        "stazionePartenza": null,
+        "stazioneArrivo": null,
+        "statoTreno": null,
+        "corrispondenze": [],
+        "servizi": [],
+        "ritardo": 14,
+        "tipoProdotto": "100",
+        "compOrarioPartenzaZeroEffettivo": "21:10",
+        "compOrarioArrivoZeroEffettivo": null,
+        "compOrarioPartenzaZero": "21:10",
+        "compOrarioArrivoZero": null,
+        "compOrarioArrivo": null,
+        "compOrarioPartenza": "21:10",
+        "compNumeroTreno": " FR 9328",
+        "compOrientamento": [
+            "Executive in coda",
+            "Executive at the rear",
+            "Executive Zugende",
+            "Executive en queue",
+            "Executive al final del tren",
+            "Executive la coada trenului",
+            "背面のExecutive",
+            "Executive在后几节车厢",
+            "Executive в хвосте поезда"
+        ],
+        "compTipologiaTreno": "nazionale",
+        "compClassRitardoTxt": "",
+        "compClassRitardoLine": "regolare_line",
+        "compImgRitardo2": "/vt_static/img/legenda/icone_legenda/regolare.png",
+        "compImgRitardo": "/vt_static/img/legenda/icone_legenda/regolare.png",
+        "compRitardo": [
+            "ritardo 14 min.",
+            "delay 14 min.",
+            "Versp&#228;tung 14 Min.",
+            "retard de 14 min.",
+            "retraso de 14 min.",
+            "&icirc;nt&acirc;rziere 14 min.",
+            "遅延 14 分",
+            "误点 14分钟",
+            "опоздание на 14 минут"
+        ],
+        "compRitardoAndamento": [
+            "con un ritardo di 14 min.",
+            "14 minutes late",
+            "mit einer Verz&#246;gerung von 14 Min.",
+            "avec un retard de 14 min.",
+            "con un retraso de 14 min.",
+            "cu o &icirc;nt&acirc;rziere de 14 min.",
+            "14 分の遅延",
+            "误点 14分钟",
+            "с опозданием в 14 минут"
+        ],
+        "compInStazionePartenza": [
+            "Partito",
+            "Departed",
+            "angef&#228;hrt",
+            "Partit",
+            "Salido",
+            "Plecat",
+            "発車済",
+            "已出发",
+            "отправленный"
+        ],
+        "compInStazioneArrivo": [
+            "Arrivato",
+            "Arrived",
+            "angekommen",
+            "Arriv&eacute;",
+            "Llegado",
+            "Sosit",
+            "到着済",
+            "已到达",
+            "прибывший"
+        ],
+        "compOrarioEffettivoArrivo": null,
+        "compDurata": "",
+        "compImgCambiNumerazione": "&nbsp;&nbsp;",
+        "materiale_label": null,
+        "ultimoRilev": 1789845840000,
+        "iconTreno": null
+    },
+```
+
+Questo è estrapolato dal JSON completo delle partenze di `Firenze S.M.N.`. Per ora merita tenerli proprio tutti.
+
+### Appunto noioso:
+
+L'origine leggibile è `null`ma viene passata con il codice stazione, mentre la destinazione per intera ma senza codice.
+No sense però.
+
+```json
+  "origine": null,
+  "codOrigine": "S06421",
+  "destinazione": "LIVORNO CENTRALE",
+  "codDestinazione": null,
+```
+
 ### Test di chiamata sul backend
 
 - Con il backend di Treninfo, l'idea è quella di ridurre questi passaggi di chiamate strani di ViaggiaTreno e racchiudere gli endpoint in maniera più chiara, più che altro perchè il reale casino arriva dopo con l'inserimento degli endpoint `LeFrecce`.
