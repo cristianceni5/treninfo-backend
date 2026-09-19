@@ -1,0 +1,16 @@
+{
+  "name": "freccia-gestionale",
+  "version": "1.0.0",
+  "description": "Gestionale per i servizi Freccia di Cristian Ceni",
+  "license": "ISC",
+  "author": "Cristian Ceni - Ceni Dev",
+  "type": "commonjs",
+  "main": "server.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "dependencies": {
+    "dotenv": "^18.0.1",
+    "express": "^5.2.1"
+  }
+}

@@ -1,0 +1,54 @@
+/*
+    Cristian Ceni 19/09/26
+    File dei componenti CSS
+*/
+
+@font-face {
+    font-family: 'Chalet';
+    src: url('../fonts/Chalet.woff2') format('woff2'),
+}
+
+@font-face {
+    font-family: 'Libre';
+    src: url('../fonts/LibreBaskerville.woff2') format('woff2'),
+}
+
+/* Root generale, colori, font, dimensioni, ... */
+:root {
+    /* Colori - non usare altri colori se non questi elencati qui */
+    --primary-color: #0077B6;
+    --secondary-color: #528AAE;
+    --bg-color: #FAFAFA;
+    --text-color: #2B2D42;
+    --subtext-color: #6C757D;
+    --card-color: #FFFFFF;
+    --border-color: #EFEBE4;
+
+    /* Spaziature */
+    --spacing-xs: 4px;
+    --spacing-sm: 8px;
+    --spacing-md: 16px;
+    --spacing-l: 32px;
+    --spacing-xl: 64px;
+
+    /* Radius */
+    --radius-sm: 16px;
+    --radius-md: 32px;
+    --radius-pill: 99px;
+
+    /* Font family */
+    --font-heading: 'Chalet', sans-serif;
+    --font-corpo: 'Libre', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 900;
+    color: var(--text-color);
+}
+
+p, span, a, li {
+    font-family: var(--font-corpo);
+    font-weight: 200;
+    color: var(--subtext-color);
+}
